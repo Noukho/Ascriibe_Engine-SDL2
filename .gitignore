@@ -40,7 +40,62 @@
 # debug information files
 *.dwo
 
-/build
-/AscriibeEngine/x64
-/AscriibeEditor/x64
+# Local binary directories
+/bin/
+*/x64/
+*/Debug/
+*/Release/
+*/RelWithDebInfo/
+*/MinSizeRel/
+
+###################################
+# CMake build directories
+###################################
+/build/
+/cmake-build*/
+
+###################################
+# Visual Studio / MSBuild
+###################################
 .vs/
+*.suo
+*.user
+*.psess
+*.vsp
+*.vspscc
+*.cache
+
+###################################
+# Exceptions
+###################################
+
+# Autoriser toutes les dépendances dans external/
+!external/**
+
+# Mais ré-ignorer les artefacts de build potentiels
+external/**/build/
+external/**/CMakeFiles/
+external/**/Makefile
+external/**/cmake_install.cmake
+
+# Autoriser les libs et dll *seulement* dans external/
+!external/**/*.dll
+!external/**/*.lib
+!external/**/*.a
+!external/**/*.so
+!external/**/*.dylib
+
+# Autoriser les includes
+!external/**/include/**
+!external/**/src/**
+
+
+###################################
+# OS-specific
+###################################
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
