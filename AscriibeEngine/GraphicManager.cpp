@@ -3,12 +3,14 @@
 GraphicManager::GraphicManager()
 {
 	// init SDL
+	fontManager = new FontManager;
+
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
 		printf("SDL_Init Error: %s\n", SDL_GetError());
 	}
 
-	//Cr�ation fen�tre SDL    
+	//Création fenêtre SDL    
 	win = SDL_CreateWindow("Test SDL2 + PDCurses", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
 
 	if (!win)
@@ -18,7 +20,13 @@ GraphicManager::GraphicManager()
 	}
 	renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 
-	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, GRID_COLS * CHAR_WIDTH, GRID_ROWS * CHAR_HEIGHT);
+	fontManager->LoadFont("DejaVuSansMono.ttf", 16, { 255, 255, 255, 255 });
+	SDL_Surface* surface = fontManager->getTextSurface("╔═╗ UTF-8 █▓▒");
+	texture = SDL_CreateTextureFromSurface(renderer, surface);
+
+	SDL_FreeSurface(surface);
+
+	//texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, GRID_COLS * CHAR_WIDTH, GRID_ROWS * CHAR_HEIGHT);
 	initscr();
 	noecho();
 	curs_set(0);
@@ -65,9 +73,4 @@ void GraphicManager::DrawScene(Scene* scene)
 	SDL_RenderPresent(renderer);
 
 	SDL_Delay(16);
-}
-
-SDL_Texture GraphicManager::CreateTextureWithSurface(SDL_Surface* surface)
-{
-	return SDL_CreateTextureFromSurface(renderer, surface);
 }

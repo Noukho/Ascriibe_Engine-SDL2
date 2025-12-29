@@ -14,6 +14,8 @@ int main(int argc, char* argv[])
 
 	GraphicManager* graphicManager;
 	graphicManager = new GraphicManager;
+
+	//
 	mvprintw(1, 2, "Hello from PDCurses!");
 	mvaddch(3, 2, '@');
 	mvaddch(4, 5, '#');

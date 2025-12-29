@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include "FontManager.h"
 #include <curses.h>
+#include<string>
 //#include "editbox.h"
 
 typedef enum
@@ -43,12 +44,14 @@ public:
 
 	
 	void DrawScene(Scene* scene);
-	SDL_Texture CreateTextureWithSurface(SDL_Surface* surface);
+	
+	//SDL_Texture CreateTextureWithSurface(SDL_Surface* surface);
 
 private:
 	SDL_Window* win;
 	SDL_Renderer* renderer;
 	SDL_Texture* texture;
+	FontManager* fontManager;
 	const int CHAR_WIDTH = 16;   // taille d'un caractère
 	const int CHAR_HEIGHT = 16;
 	const int GRID_COLS = 40;   // largeur grille curses

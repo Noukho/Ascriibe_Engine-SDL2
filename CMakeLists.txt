@@ -41,8 +41,11 @@ set(PDCURSES_LIB PDCurses)
 # ---------------------------------------------------------
 # Sources
 # ---------------------------------------------------------
+file(GLOB_RECURSE ENGINE_SOURCES
+    AscriibeEngine/*.cpp
+)
 add_executable(ascriibe_engine
-    AscriibeEngine/main.cpp
+    ${ENGINE_SOURCES}
 )
 
 target_include_directories(ascriibe_engine PRIVATE
