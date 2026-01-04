@@ -6,8 +6,8 @@ SceneManager::SceneManager()
 	actualScene = new Scene;
 
 	actualScene->fontPath = "";
-	actualScene->maxPos.x = 200;
-	actualScene->maxPos.y = 150;
+	actualScene->maxPos.x = 145;
+	actualScene->maxPos.y = 45;
 	actualScene->tile;
 	actualScene->actor;
 }
@@ -31,11 +31,11 @@ void SceneManager::AddTileToScene(Tile* TileToAdd)
 	}
 }
 
-void SceneManager::AddMultTileToScene(std::vector<Tile*> arrOfTileToDraw)
+void SceneManager::AddMultTileToScene(std::vector<Tile*> arrOfTileToAdd)
 {
-	for (int i = 0; i <= arrOfTileToDraw.size() - 1; i++)
+	for (int i = 0; i <= arrOfTileToAdd.size() - 1; i++)
 	{
-		AddTileToScene(arrOfTileToDraw[i]);
+		AddTileToScene(arrOfTileToAdd[i]);
 	}
 }
 

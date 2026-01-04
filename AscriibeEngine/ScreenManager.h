@@ -10,7 +10,7 @@ public:
 	~ScreenManager();// = default;
 
 	
-	WINDOW* DrawViewport(Scene* scene);
+	void DrawViewport(Scene* scene);
 
 	//WINDOW* GetViewport() { return viewport; };
 

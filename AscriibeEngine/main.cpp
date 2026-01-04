@@ -11,6 +11,7 @@ int main(int argc, char* argv[])
 		printf("SDL_Init Error: %s\n", SDL_GetError());
 		return 1;
 	}
+	
 
 	Game* game = new Game;
 

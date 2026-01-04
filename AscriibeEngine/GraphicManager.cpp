@@ -11,7 +11,8 @@ GraphicManager::GraphicManager()
 
 	//Création fenêtre SDL     
 	win = SDL_CreateWindow("Test SDL2 + PDCurses", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
-
+	//SDL_SetWindowFullscreen(win, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	SDL_SetWindowSize(win, 1920, 1080);
 	if (!win)
 	{
 		printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
@@ -51,13 +52,17 @@ void GraphicManager::DrawScene(Scene* scene)
 		for (int x = 0; x < scene->maxPos.x  ; x++)
 		{
 			chtype ch = mvinch(y, x) & A_CHARTEXT;
+			if (ch == ' ')
+			{
+				ch = '.';
+			};
 			wchar_t wch = ch & A_CHARTEXT;
 
 			std::wstring ws(1, wch);
 			std::string utf8 = wchar_to_utf8(ws);
 
-			if (ch == ' ') continue;
-			//char chChar = (char)ch;
+			
+			
 			SDL_Texture* tex = CreateCharTexture(utf8.c_str());
 			
 			SDL_Rect rect = { x * charSize.w, y * charSize.h, charSize.w, charSize.h};
@@ -75,7 +80,7 @@ void GraphicManager::DrawScene(Scene* scene)
 
 	SDL_RenderPresent(renderer);
 
-	//SDL_Delay(2);
+	SDL_Delay(16);
 }
 
 SDL_Texture* GraphicManager::CreateCharTexture(const char* character)

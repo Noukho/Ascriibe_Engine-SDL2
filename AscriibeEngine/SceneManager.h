@@ -13,10 +13,10 @@ public:
 	~SceneManager();
 
 	//Scene* CreateScene();
-	void SetSceneSize(int maxX, int maxY);
+	void SetSceneSize(int maxY, int maxX);
 
 	void AddTileToScene(Tile* TileToAdd);
-	void AddMultTileToScene(std::vector<Tile*> arrOfTileToDraw);
+	void AddMultTileToScene(std::vector<Tile*> arrOfTileToAdd);
 
 	void AddActorToScene(Actor* ActorToAdd);
 	void AddMultActorToScene(std::vector<Actor*> arrOfActorToAdd);

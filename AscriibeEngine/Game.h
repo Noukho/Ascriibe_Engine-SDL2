@@ -5,10 +5,7 @@
 #include "GraphicManager.h"
 
 
-const int CHAR_WIDTH = 16;   // taille d'un caractère
-const int CHAR_HEIGHT = 16;
-const int GRID_COLS = 40;   // largeur grille curses
-const int GRID_ROWS = 25;	  // hauteur grille curses
+
 
 class Game
 {

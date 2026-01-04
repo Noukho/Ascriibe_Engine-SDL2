@@ -16,8 +16,9 @@ ScreenManager::~ScreenManager()
 }
 
 
-WINDOW* ScreenManager::DrawViewport(Scene* scene)
+void ScreenManager::DrawViewport(Scene* scene)
 {
+	resize_term(scene->maxPos.x, scene->maxPos.y);
 	clear();
 
 	//draw Tile 
@@ -31,6 +32,4 @@ WINDOW* ScreenManager::DrawViewport(Scene* scene)
 	{
 		mvaddch(scene->actor[I]->transform.GetPosition().y, scene->actor[I]->transform.GetPosition().x, scene->actor[I]->visual.GetVisual());
 	}
-
-	return viewport;
 }

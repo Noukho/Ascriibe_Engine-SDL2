@@ -12,10 +12,10 @@ void Game::GameLoop()
     clear();
     std::vector<Actor*> arrBp;
 
-    for (int i = 0; i < 200; i++)
+    for (int i = 0; i < 50; i++)
     {
         BoidPawn* bp = new BoidPawn;
-        bp->transform.SetPosition(28 + i, 10);
+        bp->transform.SetPosition(0 + i,10 );
         arrBp.push_back(bp);
     }
 
@@ -32,7 +32,7 @@ void Game::GameLoop()
                 running = false;
             }
         }
-
+        sceneManager->buildScene();
         graphicManager->DrawScene(sceneManager->GetScene());
     }
 
