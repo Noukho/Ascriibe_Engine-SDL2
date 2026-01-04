@@ -34,19 +34,25 @@ find_package(SDL2_ttf REQUIRED)
 # ---------------------------------------------------------
 # PDCurses (version avec les sources dans external/)
 # ---------------------------------------------------------
+set(PDCURSES_WIDE ON CACHE BOOL "Enable wide-character support for PDCurses")
 add_subdirectory(external/PDCurses)
+target_compile_definitions(PDCurses PRIVATE PDC_WIDE)
 set(PDCURSES_LIB PDCurses)
+
 
 
 # ---------------------------------------------------------
 # Sources
 # ---------------------------------------------------------
 file(GLOB_RECURSE ENGINE_SOURCES
+    CONFIGURE_DEPENDS
     AscriibeEngine/*.cpp
 )
+
 add_executable(ascriibe_engine
     ${ENGINE_SOURCES}
 )
+target_compile_definitions(ascriibe_engine PRIVATE PDC_WIDE)
 
 target_include_directories(ascriibe_engine PRIVATE
     external/PDCurses

@@ -7,6 +7,9 @@ FontManager::FontManager()
 		printf("SDL error %s\n", SDL_GetError());
 		//return 1;
 	}
+	charSize = new CharSize;
+	charSize->h = 0;
+	charSize->w = 0;
 	//police:
 	//DejaVu Sans Mono
 	//Noto Sans Mono
@@ -16,25 +19,25 @@ FontManager::FontManager()
 
 FontManager::~FontManager()
 {
+	//charSize
+	TTF_CloseFont(font);
+	TTF_Quit();
 }
 
-void FontManager::LoadFont(std::string fontString, int size, SDL_Color color)
+void FontManager::LoadFont(const char* fontName, int size, SDL_Color color)
 {
-
-	font = TTF_OpenFont(fontString.data(), size);
+	font = TTF_OpenFont(fontName, size);
 	if (!font) {
-		printf("Font error: %s\n", TTF_GetError());
+		printf("TTF_OpenFont error (%s): %s\n", fontName,TTF_GetError());
 	}
-
-	color = { 255, 255, 255, 255 };
-
-
-
+	TTF_SizeText(font, "W", &charSize->w, &charSize->h);
+	//color = { 255, 255, 255, 255 };
 }
 
-SDL_Surface* FontManager::getTextSurface(std::string text)
+SDL_Surface* FontManager::getTextSurface(const char* text)
 {
-	SDL_Surface* surface = TTF_RenderUTF8_Blended(font, "╔═╗ UTF-8 █▓▒", color);
+	//TTF_RenderUTF8_Blended
+	SDL_Surface* surface = TTF_RenderUTF8_Blended(font, text, color);//"╔═╗ UTF-8 █▓▒", color);
 
 	if (!surface) {
 		printf("Render error: %s\n", TTF_GetError());

@@ -133,14 +133,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="BoidPawn.h" />
+    <ClInclude Include="Boids.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="FontManager.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="gameType.h" />
     <ClInclude Include="GraphicManager.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Pawn.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScreenManager.h" />
+    <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="Type.h" />
+    <ClInclude Include="VisualComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="BoidPawn.cpp" />
+    <ClCompile Include="Boids.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="gameType.cpp" />
     <ClCompile Include="GraphicManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pawn.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScreenManager.cpp" />
+    <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="VisualComponent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

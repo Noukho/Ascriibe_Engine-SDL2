@@ -7,7 +7,7 @@ de visual
 
 
 
-commande de build cmake : 
+commande de build cmake :
 
 * mkdir build
 * cd build
@@ -20,3 +20,11 @@ Chaque build devra être effectué via les commande suivante:
 
 * cd build (Seulement si vous ne vous trouvez pas dans le dossier /build)
 * cmake --build .
+
+
+
+
+
+si il y a un problème et que vous soupçonné une mauvaise build de CMake, faites:
+
+* cmake --build . --clean-first
